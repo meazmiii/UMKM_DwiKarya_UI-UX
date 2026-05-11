@@ -1,38 +1,32 @@
-import streamlit as st
 import streamlit.components.v1 as components
 
-# 1. Setting halaman agar lebar (wide)
+# 1. Konfigurasi Halaman
 st.set_page_config(
     page_title="Dwikarya | Furniture",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
 
-# 2. CSS Sakti untuk memaksa konten benar-benar Full Width & Full Screen
+# 2. CSS untuk menghilangkan semua pembatas Streamlit (Anti-Hitam & Full Width)
 st.markdown("""
     <style>
-        /* Menghilangkan padding utama Streamlit */
+        /* Menghapus padding Streamlit */
         .block-container {
-            padding-top: 0rem;
-            padding-bottom: 0rem;
-            padding-left: 0rem;
-            padding-right: 0rem;
+            padding: 0rem !important;
             max-width: 100% !important;
         }
-        /* Menghilangkan header default Streamlit */
-        header {visibility: hidden;}
-        footer {visibility: hidden;}
-        #MainMenu {visibility: hidden;}
-        
-        /* Memaksa Iframe untuk mengambil seluruh lebar layar tanpa sisa */
+        /* Menghilangkan elemen default */
+        header, footer, #MainMenu {
+            visibility: hidden;
+            height: 0;
+        }
+        /* Memaksa Iframe memenuhi layar */
         iframe {
-            display: block;
             width: 100vw !important;
             height: 100vh !important;
             border: none;
         }
-        
-        /* Menghilangkan scrollbar ganda di sisi luar */
+        /* Menghilangkan scrollbar ganda */
         .stApp {
             overflow: hidden;
         }
@@ -240,8 +234,6 @@ html_content = """
 
     """ 
 
-# Tambahkan sisa tag penutup HTML kamu di sini agar tidak hilang
-# (Saya ringkas untuk efisiensi pesan, pastikan copy paste kode lengkapmu di variabel html_content)
 html_content += """
     <section id="tentang" class="bg-white text-gray-800 py-16 px-6 md:px-12 text-center">
         <h2 class="text-3xl font-bold mb-6">Tentang Kami</h2>
@@ -250,7 +242,4 @@ html_content += """
     </body>
 </html>
 """
-
-# 4. Tampilkan HTML dengan scrolling diaktifkan agar bisa di-scroll ke bawah
-# Kita gunakan height yang cukup tinggi agar bisa discroll sampai bawah
-components.html(html_content, height=4000, scrolling=True)
+components.html(html_code, height=3500, scrolling=True)
