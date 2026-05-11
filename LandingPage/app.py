@@ -1,3 +1,27 @@
+import streamlit as st
+import streamlit.components.v1 as components
+
+st.set_page_config(
+    page_title="Dwikarya | Furniture",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
+
+st.markdown("""
+    <style>
+        .reportview-container {
+            margin-top: -2em;
+        }
+        #MainMenu {visibility: hidden;}
+        .stDeployButton {display:none;}
+        footer {visibility: hidden;}
+        #stDecoration {display:none;}
+        div.block-container {padding: 0;}
+    </style>
+""", unsafe_allow_html=True)
+
+
+html_content = """
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,13 +32,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Poppins', sans-serif; }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
-<body class="text-white">
+<body class="text-white bg-black">
     <!-- Header Navigasi -->
     <header class="sticky top-0 left-0 w-full z-30 px-6 md:px-12 py-4 flex justify-between items-center bg-black bg-opacity-60 backdrop-blur">
         <h1 class="text-white font-bold text-xl">DWIKARYA</h1>
-        <a class="hover:underline">(Azmi Aziz 4903, Herlambang Sujatmiko 4925, Raffi Nurzahid 4930)</a>
+        <a class="hover:underline text-xs md:text-sm">(Azmi Aziz 4903, Herlambang Sujatmiko 4925, Raffi Nurzahid 4930)</a>
         <nav class="space-x-4 text-sm md:text-base">
         <a href="#produk" class="hover:underline">Produk</a>
         <a href="#tentang" class="hover:underline">Tentang Kami</a>
@@ -31,12 +56,12 @@
       <div class="w-full md:w-1/2">
         <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight tracking-widest">DWIKARYA</h1>
         <p class="mb-6 text-lg">Pilihan terbaik untuk Furniture Anda — Desain modern, awet, dan GRATIS antar jemput.</p>
-        <a href="https://wa.me/6283876788630" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition">PESAN DISINI</a>
+        <a href="https://wa.me/6283876788630" target="_blank" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition">PESAN DISINI</a>
       </div>
     </div>
 
     <!-- Kotak Unggulan Kanan -->
-    <div class="absolute right-6 md:right-20 bottom-16 z-20 w-[300px] bg-white text-gray-800 rounded-xl shadow-xl overflow-hidden">
+    <div class="absolute right-6 md:right-20 bottom-16 z-20 w-[300px] bg-white text-gray-800 rounded-xl shadow-xl overflow-hidden hidden md:block">
       <div class="p-4 border-b text-sm font-bold text-center bg-gray-100">LAYANAN UNGGULAN</div>
       <img src="https://media.dekoruma.com/catalogue/GRV-432954.jpg?dpr=1&fit=bounds&height=1000&optimize=high&quality=60&trim-color=ffffff&width=1000" alt="lemari" class="w-full h-48 object-cover" />
       <div class="p-4 text-center">
@@ -57,7 +82,6 @@
         www.dwikarya.id
         </p>
     </div>
-  
 
     <!-- Instagram -->
     <div class="absolute bottom-6 right-6 text-sm z-20 flex items-center gap-2">
@@ -92,7 +116,7 @@
             <h3 class="text-lg font-bold mb-1">Kursi Modern</h3>
             <h3 class="text-lg font-bold mb-1"> ★ 8/10</h3>
             <p class="text-sm"><s>Rp. 500.000</s></p>
-            <p class="text-sm font-bold">Rp. 250.000</p> <!-- diskon 50%-->
+            <p class="text-sm font-bold">Rp. 250.000</p>
           </div>
         </div>
 
@@ -104,7 +128,7 @@
             <h3 class="text-lg font-bold mb-1">Lemari Modern</h3>
             <h3 class="text-lg font-bold mb-1"> ★ 9/10</h3>
             <p class="text-sm"><s>Rp. 2.700.000</s></p>
-            <p class="text-sm font-bold">Rp. 1.620.000</p> <!-- diskon 40%-->
+            <p class="text-sm font-bold">Rp. 1.620.000</p>
           </div>
         </div>
 
@@ -116,7 +140,7 @@
             <h3 class="text-lg font-bold mb-1">Meja Modern</h3>
             <h3 class="text-lg font-bold mb-1"> ★ 8.5/10</h3>
             <p class="text-sm"><s>Rp. 1.500.000</s></p>
-            <p class="text-sm font-bold">Rp. 1.050.000</p> <!-- diskon 30%-->
+            <p class="text-sm font-bold">Rp. 1.050.000</p>
           </div>
         </div>
 
@@ -128,7 +152,7 @@
               <h3 class="text-lg font-bold mb-1">Sofa Modern</h3>
               <h3 class="text-lg font-bold mb-1"> ★ 10/10</h3>
               <p class="text-sm"><s>Rp. 2.100.000</s></p>
-              <p class="text-sm font-bold">Rp. 1.260.000</p> <!-- diskon 40%-->
+              <p class="text-sm font-bold">Rp. 1.260.000</p>
             </div>
           </div>
 
@@ -140,7 +164,7 @@
               <h3 class="text-lg font-bold mb-1">Set Lengkap Modern</h3>
               <h3 class="text-lg font-bold mb-1"> ★ 10/10</h3>
               <p class="text-sm"><s>Rp. 6.250.000</s></p>
-              <p class="text-sm font-bold">Rp. 3.750.000</p> <!-- diskon 40%-->
+              <p class="text-sm font-bold">Rp. 3.750.000</p>
             </div>
           </div>
 
@@ -150,7 +174,7 @@
 
   <!-- Section MITRA -->
   <section id="keuntungan" class="bg-white text-gray-800 py-16 px-6 md:px-12 text-center">
-    <h2 class="text-3xl font-bold mb-6">Bergabunglah Menjadi Mitra Bidadang Furniture</h2>
+    <h2 class="text-3xl font-bold mb-6">Bergabunglah Menjadi Mitra Bidang Furniture</h2>
     <p class="max-w-2xl mx-auto text-lg mb-10">
       Kami membuka kesempatan bagi Anda yang ingin menjadi bagian dari perjalanan kami. Mitra DWIKARYA akan mendapatkan dukungan, pelatihan, dan peluang usaha yang menguntungkan.
     </p>
@@ -194,3 +218,7 @@
 
 </body>
 </html>
+"""
+
+# 4. Tampilkan HTML tersebut ke Streamlit
+components.html(html_content, height=4200, scrolling=False)
