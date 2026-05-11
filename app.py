@@ -7,16 +7,21 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
+
+# Bungkus komponen HTML di dalam container agar lebarnya benar-benar 100%
+st.components.v1.html(html_content, height=4200, scrolling=False)
+
+# Tambahkan CSS tambahan untuk memaksa iframe memenuhi layar tanpa margin sisa
 st.markdown("""
     <style>
-        .reportview-container {
-            margin-top: -2em;
+        iframe {
+            width: 100vw;
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
         }
-        #MainMenu {visibility: hidden;}
-        .stDeployButton {display:none;}
-        footer {visibility: hidden;}
-        #stDecoration {display:none;}
-        div.block-container {padding: 0;}
     </style>
 """, unsafe_allow_html=True)
 
@@ -219,6 +224,3 @@ html_content = """
 </body>
 </html>
 """
-
-# 4. Tampilkan HTML tersebut ke Streamlit
-components.html(html_content, height=4200, scrolling=False)
