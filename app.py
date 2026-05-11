@@ -8,9 +8,6 @@ st.set_page_config(
 )
 
 
-# Bungkus komponen HTML di dalam container agar lebarnya benar-benar 100%
-st.components.v1.html(html_content, height=4200, scrolling=False)
-
 # Tambahkan CSS tambahan untuk memaksa iframe memenuhi layar tanpa margin sisa
 st.markdown("""
     <style>
@@ -224,3 +221,8 @@ html_content = """
 </body>
 </html>
 """
+
+
+
+# Bungkus komponen HTML di dalam container agar lebarnya benar-benar 100%
+st.components.v1.html(html_content, height=4200, scrolling=False)
